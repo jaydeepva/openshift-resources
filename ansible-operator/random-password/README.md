@@ -1,0 +1,2 @@
+# Introduction
+Sometimes you need to generate random password for security reason rather than using default password. This ansible task generates a random ASCII password using a combination of letters and digits. Feel free to change the length of the password
