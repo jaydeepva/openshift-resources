@@ -1,0 +1,4 @@
+- name: create a secret that stores multiple files
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'my-secret.yml.j2') }}"

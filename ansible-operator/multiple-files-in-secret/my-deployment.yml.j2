@@ -1,0 +1,19 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: my-deployment
+  namespace: '{{ meta.namespace }}'
+spec:
+  replicas: 2
+  template:
+    spec:
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: 'my-secret-name'
+      containers:
+      - name: my-container-name
+        image: 'my-image-repo/my-image'
+        volumeMounts:
+          - mountPath: /usr/my-app/secret
+            name: secret-volume
