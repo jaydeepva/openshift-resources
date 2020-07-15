@@ -1,0 +1,14 @@
+# get secret json representation in an ansible variable
+- name: Get secret contents
+  k8s_info:
+    api_version: v1
+    kind: Secret
+    name: "my-secret-name"
+    namespace: "{{ meta.namespace }}"
+  register: my-secret-var
+
+# assuming password is stored in an attribute 'password', decide the base64 encoded value
+- name: Get password from secret json
+  set_fact:
+    my_pwd: "{{ my-secret-var.resources[0].data.password | b64decode }}"
+  when: my-secret-var.resources

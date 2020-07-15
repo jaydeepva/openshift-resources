@@ -1,0 +1,2 @@
+# Introduction
+Sometimes you may need to retrieve password stored in secret in your operator for checking or further processing. This may be more relevant if you have generated a random password. This ansible tasks helps you retrive password and set it in a fact for further use
