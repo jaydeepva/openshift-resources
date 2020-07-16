@@ -1,0 +1,23 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: 'my-networkpolicy'
+  namespace: '{{ meta.namespace }}'
+spec:
+  podSelector: 
+    matchLabels:
+      app: my-app
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: my-app-2
+    - podSelector:
+        matchLabels:
+          app: my-app-3
+    - podSelector:
+        matchLabels:
+          app: prometheus
+    - namespaceSelector:
+        matchLabels:
+          name: '{{ meta.namespace }}'

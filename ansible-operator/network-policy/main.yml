@@ -1,0 +1,4 @@
+- name: my network policy
+  k8s:
+   state: present
+   definition: "{{ lookup('template', 'ingress-nwpolicy.yml.j2') }}"
