@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: 'my-service-b'
+  namespace: '{{ meta.namespace }}'
+  labels:
+    app: my-serviceb
+spec:
+  replicas: 2
+  template:
+    spec:
+      volumes:
+      - name: server-certs-secret
+        secret:
+          secretName: 'serviceb-certs'
+      containers:
+      - name: my-serviceb-pod
+        image: my-image-repo/my-image:my-image-tag
+        volumeMounts:
+          - mountPath: /etc/serviceb/server-certs
+            name: server-certs-secret
+            readOnly: true

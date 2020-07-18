@@ -1,0 +1,19 @@
+- name: create configMap for client certs
+  k8s:
+   state: present
+   definition: "{{ lookup('template', 'my-configmap.yml.j2') }}"
+
+- name: deploy service-B
+  k8s:
+   state: present
+   definition: "{{ lookup('template', 'my-deployment-b.yml.j2') }}"
+
+- name: create service for service-B to create server certs
+  k8s:
+   state: present
+   definition: "{{ lookup('template', 'my-service-b.yml.j2') }}"
+
+- name: deploy service-A
+  k8s:
+   state: present
+   definition: "{{ lookup('template', 'my-deployment-a.yml.j2') }}"

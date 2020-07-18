@@ -1,0 +1,9 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: 'client-certs'
+  namespace: '{{ meta.namespace }}'
+  annotations:
+    service.beta.openshift.io/inject-cabundle: 'true'
+data:
+  desc: this configmap will hold client certs for ssl 

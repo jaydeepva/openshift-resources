@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: 'my-service-a'
+  namespace: '{{ meta.namespace }}'
+spec:
+  selector:
+    matchLabels:
+      app: service-a
+  template:
+    metadata:
+      labels:
+        app: service-a
+    spec:
+      volumes:
+      - name: client-certs-config
+        configMap:
+          name: 'client-certs'
+      containers:
+      - name: service-a-pod
+        image: my-image-repo/my-image-name:my-image-tag
+        volumeMounts:
+          - mountPath: /etc/servicea/client-certs
+            name: client-certs-config
+            readOnly: true
