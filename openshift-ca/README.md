@@ -137,7 +137,7 @@ var options = {
 request.get(options);
 ```
 
-# User service serving certificates functionality with Java
+# Using service serving certificates functionality with Java
 Certificates created by OpenShift CA are in PEM (base64-encoded certificates) format and cannot be directly consumed by Java applications, which need certificates to be stored in Java KeyStores.
 
 This article provides a nice explanation on how to work with certificates for your Java based applications
