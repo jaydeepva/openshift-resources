@@ -1,0 +1,31 @@
+# assume that you have created an instance of Baz named 'BazInstance'
+
+- name: deploy my-app
+  operator_sdk.util.k8s_status:
+    api_version: baz.example.com/v1alpha1
+    kind: Baz
+    name: BazInstance
+    namespace: '{{ meta.namespace }}'
+    status:
+      phase: InProgress
+      reason: Start deploy my-app
+
+- name: deployment complete
+  operator_sdk.util.k8s_status:
+    api_version: baz.example.com/v1alpha1
+    kind: Baz
+    name: BazInstance
+    namespace: '{{ meta.namespace }}'
+    status:
+      phase: Running
+      reason: Setup is complete
+
+- name: deployment failed
+  operator_sdk.util.k8s_status:
+    api_version: baz.example.com/v1alpha1
+    kind: Baz
+    name: BazInstance
+    namespace: '{{ meta.namespace }}'
+    status:
+      phase: Failed
+      reason: Deployment failed for some reason

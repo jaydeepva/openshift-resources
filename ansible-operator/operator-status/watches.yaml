@@ -1,0 +1,7 @@
+- version: v1alpha1 
+  group: baz.example.com
+  kind: Baz
+  playbook: /opt/ansible/baz.yml
+  reconcilePeriod: 0
+  manageStatus: false
+  
