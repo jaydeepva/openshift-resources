@@ -8,3 +8,6 @@ A collection of useful code snippets, tips and tricks for building your Ansible 
 
 ### openshift-ca
 This explains how to use OpenShift CA and service serving certificates capabilities to enable mTLS between your services
+
+### storage
+A few examples on how to share storage between containers and how to share storage between containers and external entities
