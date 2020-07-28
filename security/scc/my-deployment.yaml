@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: my-deployment
+  namespace: '{{ meta.namespace }}'
+spec:
+  replicas: 1
+  template:
+    spec:
+      serviceAccountName: my-service-account
+      securityContext:
+        runAsNonRoot: true
+      containers:
+      - name: my-container
+        image: my-image-repo/my-image-name:my-image-tag
+        securityContext:
+          privileged: false
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
+          capabilities:
+            drop:
+              - ALL

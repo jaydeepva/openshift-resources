@@ -11,3 +11,6 @@ This explains how to use OpenShift CA and service serving certificates capabilit
 
 ### storage
 A few examples on how to share storage between containers and how to share storage between containers and external entities
+
+### storage
+A few examples on how configure and use service account and SCC
