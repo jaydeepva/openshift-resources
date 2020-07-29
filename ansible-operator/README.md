@@ -15,3 +15,6 @@ How to configure network policies to control ingress, egress and communication b
 
 # operator-status
 How to set custom status of your CR via operator
+
+# hpa
+How to create horizontal pod autoscaling policy through operator and resolve conflict in managing number of replicas

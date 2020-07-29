@@ -1,0 +1,9 @@
+- name: create a new deployment with replica count as 1 if not already present
+  k8s:
+    state: absent
+    definition: "{{ lookup('template', 'my-deployment.yml.j2') }}"
+
+- name: deploy hpa
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'my-hpa.yml.j2') }}"
