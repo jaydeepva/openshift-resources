@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 'my-app'
+  namespace: '{{ meta.namespace }}'
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        name: my-app
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: name
+                  operator: In
+                  values:
+                  - my-app
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+        ....

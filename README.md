@@ -14,3 +14,6 @@ A few examples on how to share storage between containers and how to share stora
 
 ### security
 A set of useful resources for configuring security for your workload
+
+### scheduling
+Few examples on how to schedule/place pods across different nodes based on rules
